@@ -3,17 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesso Riservato - Dipartimento di Giustizia</title>
+    <title>Homepage - Dipartimento di Giustizia</title>
     <style>
         body {
             background-color: #1a1a1a;
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
             color: #e0e0e0;
+        }
+        .header {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        .logo {
+            width: 150px;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .section {
+            background-color: #2d2d2d;
+            margin: 1rem;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            width: 45%;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .section:hover {
+            transform: scale(1.05);
+        }
+        .section h2 {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .section p {
+            font-size: 1rem;
+            color: #e0e0e0;
+        }
+        .footer {
+            background-color: #2d2d2d;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #888;
         }
         .login-box {
             background-color: #2d2d2d;
@@ -23,18 +65,9 @@
             text-align: center;
             max-width: 500px;
             width: 100%;
+            margin: 2rem auto;
         }
-        .logo {
-            width: 150px;
-            margin-bottom: 2rem;
-        }
-        h1 {
-            font-size: 2rem;
-            color: #ffffff;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-        input[type="text"], input[type="password"] {
+        .login-box input[type="text"], .login-box input[type="password"] {
             width: 100%;
             padding: 1rem;
             margin: 1rem 0;
@@ -46,11 +79,11 @@
             box-sizing: border-box;
             transition: border-color 0.3s ease;
         }
-        input[type="text"]:focus, input[type="password"]:focus {
+        .login-box input[type="text"]:focus, .login-box input[type="password"]:focus {
             border-color: #007bff;
             outline: none;
         }
-        input[type="submit"] {
+        .login-box input[type="submit"] {
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -63,13 +96,8 @@
             font-weight: 600;
             transition: background-color 0.3s ease;
         }
-        input[type="submit"]:hover {
+        .login-box input[type="submit"]:hover {
             background-color: #0056b3;
-        }
-        .footer {
-            margin-top: 2rem;
-            font-size: 0.875rem;
-            color: #888;
         }
         .error-message {
             color: #ff4444;
@@ -80,8 +108,30 @@
     </style>
 </head>
 <body>
-    <div class="login-box">
+    <div class="header">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Seal_of_the_United_States_Department_of_Justice.svg/2048px-Seal_of_the_United_States_Department_of_Justice.svg.png" alt="Logo Dipartimento di Giustizia" class="logo">
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Notizie</h2>
+            <p>Ultime notizie e aggiornamenti dal Dipartimento di Giustizia.</p>
+        </div>
+        <div class="section">
+            <h2>Taglie</h2>
+            <p>Informazioni sulle taglie e ricercati.</p>
+        </div>
+        <div class="section">
+            <h2>Informazioni</h2>
+            <p>Informazioni generali sul Dipartimento di Giustizia.</p>
+        </div>
+        <div class="section">
+            <h2>Accesso Riservato</h2>
+            <p>Area riservata per il personale autorizzato.</p>
+        </div>
+    </div>
+
+    <div class="login-box">
         <h1>Accesso Riservato</h1>
         <form id="loginForm">
             <input type="text" id="username" name="username" placeholder="Nome Utente" required>
@@ -89,9 +139,10 @@
             <input type="submit" value="Accedi">
             <div id="errorMessage" class="error-message">Nome utente o password non validi.</div>
         </form>
-        <div class="footer">
-            © 2023 Dipartimento di Giustizia. Tutti i diritti riservati.
-        </div>
+    </div>
+
+    <div class="footer">
+        © 2023 Dipartimento di Giustizia. Tutti i diritti riservati.
     </div>
 
     <script>
