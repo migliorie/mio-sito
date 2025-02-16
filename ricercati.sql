@@ -1,0 +1,7 @@
+CREATE TABLE ricercati (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    foto VARCHAR(255) NOT NULL,
+    descrizione TEXT NOT NULL,
+    taglia DECIMAL(10, 2) NOT NULL
+);
