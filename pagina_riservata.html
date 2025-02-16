@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Riservata - Creazione Account</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .container {
+            background-color: #2d2d2d;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+        h1 {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px solid #444;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            color: #e0e0e0;
+            background-color: #1a1a1a;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            margin-top: 1.5rem;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #888;
+        }
+        .error-message {
+            color: #ff4444;
+            margin-top: 1rem;
+            font-size: 1rem;
+            display: none;
+        }
+        .success-message {
+            color: #4caf50;
+            margin-top: 1rem;
+            font-size: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pagina Riservata</h1>
+        <p>Benvenuto, Agente 007. Qui puoi creare nuovi account.</p>
+        <form id="createAccountForm">
+            <input type="text" id="newUsername" name="newUsername" placeholder="Nuovo Nome Utente" required>
+            <input type="password" id="newPassword" name="newPassword" placeholder="Nuova Password" required>
+            <input type="submit" value="Crea Account">
+            <div id="successMessage" class="success-message">Account creato con successo!</div>
+            <div id="errorMessage" class="error-message">Errore durante la creazione dell'account.</div>
+        </form>
+        <div class="footer">
+            © 2023 Dipartimento di Giustizia. Tutti i diritti riservati.
+        </div>
+    </div>
+
+    <script>
+        // Array per memorizzare gli account creati
+        let accounts = [];
+
+        // Gestione del form per creare nuovi account
+        document.getElementById('createAccountForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impedisce l'invio del form
+
+            // Ottieni i valori inseriti
+            const newUsername = document.getElementById('newUsername').value;
+            const newPassword = document.getElementById('newPassword').value;
+
+            // Controlla se l'username è già esistente
+            const existingAccount = accounts.find(account => account.username === newUsername);
+            if (existingAccount) {
+                document.getElementById('errorMessage').textContent = "Nome utente già esistente.";
+                document.getElementById('errorMessage').style.display
