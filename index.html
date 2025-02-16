@@ -3,78 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accesso ai Servizi Segreti</title>
+    <title>Accesso Riservato - Dipartimento di Giustizia</title>
     <style>
         body {
-            background-color: #000;
-            color: #0f0;
-            font-family: 'Courier New', Courier, monospace;
+            background-color: #1a1a1a;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: #e0e0e0;
         }
         .login-box {
-            background-color: #111;
-            padding: 2rem;
-            border: 2px solid #0f0;
+            background-color: #2d2d2d;
+            padding: 2.5rem;
             border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
-            box-shadow: 0 0 20px #0f0;
+            max-width: 500px;
+            width: 100%;
         }
         .logo {
-            width: 100px;
-            margin-bottom: 1rem;
+            width: 150px;
+            margin-bottom: 2rem;
         }
         h1 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 0.5rem;
-            margin: 0.5rem 0;
-            background-color: #222;
-            border: 1px solid #0f0;
-            color: #0f0;
-            font-family: 'Courier New', Courier, monospace;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 2px solid #444;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            color: #e0e0e0;
+            background-color: #1a1a1a;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
         }
         input[type="submit"] {
-            background-color: #0f0;
-            color: #000;
+            background-color: #007bff;
+            color: #fff;
             border: none;
-            padding: 0.5rem 1rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
             cursor: pointer;
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
         }
         input[type="submit"]:hover {
-            background-color: #0c0;
+            background-color: #0056b3;
         }
-        .glow {
-            animation: glow 1s infinite alternate;
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #888;
         }
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #0f0, 0 0 10px #0f0, 0 0 20px #0f0;
-            }
-            to {
-                text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
-            }
+        .error-message {
+            color: #ff4444;
+            margin-top: 1rem;
+            font-size: 1rem;
+            display: none;
         }
     </style>
 </head>
 <body>
     <div class="login-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Seal_of_the_United_States_Department_of_Justice.svg/2048px-Seal_of_the_United_States_Department_of_Justice.svg.png" alt="Logo Servizi Segreti" class="logo">
-        <h1 class="glow">Accesso Riservato</h1>
-        <form action="#" method="post">
-            <input type="text" name="username" placeholder="Nome Utente" required>
-            <input type="password" name="password" placeholder="Password" required>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Seal_of_the_United_States_Department_of_Justice.svg/2048px-Seal_of_the_United_States_Department_of_Justice.svg.png" alt="Logo Dipartimento di Giustizia" class="logo">
+        <h1>Accesso Riservato</h1>
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="Nome Utente" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
             <input type="submit" value="Accedi">
+            <div id="errorMessage" class="error-message">Nome utente o password non validi.</div>
         </form>
+        <div class="footer">
+            © 2023 Dipartimento di Giustizia. Tutti i diritti riservati.
+        </div>
     </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impedisce l'invio del form
+
+            // Definisci le credenziali corrette
+            const correctUsername = "agente007";
+            const correctPassword = "topsecret";
+
+            // Ottieni i valori inseriti dall'utente
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Controlla se le credenziali sono corrette
+            if (username === correctUsername && password === correctPassword) {
+                // Reindirizza a un'altra pagina
+                window.location.href = "pagina_riservata.html"; // Cambia con l'URL della tua pagina
+            } else {
+                // Mostra un messaggio di errore
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
